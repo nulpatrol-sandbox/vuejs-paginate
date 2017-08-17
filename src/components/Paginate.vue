@@ -1,21 +1,21 @@
 <template>
-    <div>
-    <ul :class="containerClass">
-        <li :class="[prevClass, { disabled: firstPageSelected() }]">
-            <a @click="prevPage()" @keyup.enter="prevPage()" :class="prevLinkClass" tabindex="0">
-                <slot name="prevContent">{{ prevText }}</slot>
-            </a>
-        </li>
-        <li v-for="page in pages" :class="[pageClass, { active: page.selected, disabled: page.disabled }]">
-            <a v-if="page.disabled" :class="pageLinkClass" tabindex="0">{{ page.content }}</a>
-            <a v-else @click="handlePageSelected(page.index)" @keyup.enter="handlePageSelected(page.index)" :class="pageLinkClass" tabindex="0">{{ page.content }}</a>
-        </li>
-        <li :class="[nextClass, { disabled: lastPageSelected() }]">
-            <a @click="nextPage()" @keyup.enter="nextPage()" :class="nextLinkClass" tabindex="0">
-                <slot name="nextContent">{{ nextText }}</slot>
-            </a>
-        </li>
-    </ul>
+    <div class="pagination-wrap">
+        <ul :class="containerClass">
+            <li :class="[prevClass, { disabled: firstPageSelected() }]">
+                <a @click="prevPage()" @keyup.enter="prevPage()" :class="prevLinkClass" tabindex="0">
+                    <slot name="prevContent">{{ prevText }}</slot>
+                </a>
+            </li>
+            <li v-for="page in pages" :class="[pageClass, { active: page.selected, disabled: page.disabled }]">
+                <a v-if="page.disabled" :class="pageLinkClass" tabindex="0">{{ page.content }}</a>
+                <a v-else @click="handlePageSelected(page.index)" @keyup.enter="handlePageSelected(page.index)" :class="pageLinkClass" tabindex="0">{{ page.content }}</a>
+            </li>
+            <li :class="[nextClass, { disabled: lastPageSelected() }]">
+                <a @click="nextPage()" @keyup.enter="nextPage()" :class="nextLinkClass" tabindex="0">
+                    <slot name="nextContent">{{ nextText }}</slot>
+                </a>
+            </li>
+        </ul>
     </div>
 </template>
 
