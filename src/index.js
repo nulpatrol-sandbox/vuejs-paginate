@@ -1,3 +1,3 @@
 import Paginate from './components/Paginate'
 
-module.exports = Paginate
+export default Paginate;
